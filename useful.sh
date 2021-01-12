@@ -25,6 +25,15 @@ find [path] -size +1G | xargs du -sh | sort
 # find all files with a certain name and delete those (useful when cleaning old logs)
 find [path] -name "*.log.2020*" -delete
 
+# find all files under /export/home/ with a certain name pattern ('*.log.2020*') and delete them 
+find /export/home/ -name '*.log.2020*' -delete
+
+# find all files under /export/home/ greater than 1G and show their names in sorted order
+find /export/home/ -size +1G | xargs du -sh | sort
+
+# delete all files (non-recursive, only in the particular folder, e.g. under /export/home/logs/ ) with a certain name pattern ('*.log.2020*')
+rm -f /export/home/logs/*.log.2020* 
+
 #search for the files containing "stao" string in all folders & subfolders
 find . -type f | xargs grep -l 'stao'
 
