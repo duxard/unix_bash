@@ -28,6 +28,9 @@ find [path] -name "*.log.2020*" -delete
 #search for the files containing "stao" string in all folders & subfolders
 find . -type f | xargs grep -l 'stao'
 
+# chmod rwx permissions for all files in a oarticural directory
+chmod ug+rwx,o+r [folder]/*
+
 # grep for a 'pattern' only in '*.d.ts' files along the whole project and output file's names only:
 grep -rl --include=\*.d.ts 'pattern' ./*
 
